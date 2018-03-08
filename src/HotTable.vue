@@ -16,15 +16,15 @@
 
   export default {
     name: 'HotTable',
-    props: propFactory(),
+    props: propFactory.call(this),
     data: function() {
-      return {
-        instance: Handsontable
-      }
+        return {
+            instance: Handsontable
+        }
     },
-    watch: propWatchFactory(updateHotSettings, updateBulkHotSettings),
-    mounted: function() { return hotInit(this); },
-    beforeDestroy: function() { return hotDestroy(this); },
+    watch: propWatchFactory.call(this, updateHotSettings, updateBulkHotSettings),
+    mounted: function() { return hotInit.call(this); },
+    beforeDestroy: function() { return hotDestroy.call(this); },
   };
 </script>
 
